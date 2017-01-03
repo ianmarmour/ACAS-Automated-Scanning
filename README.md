@@ -11,3 +11,7 @@ This script automates the following,
 2. Updating of a credential stored on a remote ACAS (Teneable Security Center) to match with the temporary local admin account.
 3. Initiation of a scan on the remote ACAS (Teneable Security Center) of the HBSS ePO 5.3.1 Server.
 4. Deletion of the temporary local administrative account.
+
+Simply follow the below integration guide to deploy the script on your network. This script works best on fresh installs of the pre-configured DISA HBSS image but should work on any system that has Powershell V4 and Windows Server 2012 R2.
+
+## Configuration Guide

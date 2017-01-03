@@ -46,9 +46,10 @@ $Username = '{your username goes here}'
 
 ## Installation Guide
 
-```Run the following command, gpedit.msc, go to Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignments -> Log on as a batch job -> and add the local administrator that you will run this script as to this group policy```
+If you're on a STIGGED system please make the below modification to local group policy,
 
-8.If you aren't on a secured/STIGd system then the above step was not required however the following step is required for both secured and non-secured systems,
+> ```Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignments -> Log on as a batch job -> and add the local administrator that you will run this script as to this group policy```
+
 
 Go to Windows Task Scheduler -> Create Task -> Set the following options
 

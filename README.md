@@ -14,6 +14,16 @@ This script automates the following,
 
 Simply follow the below integration guide to deploy the script on your network. This script works best on fresh installs of the pre-configured DISA HBSS image but should work on any system that has Powershell V4 and Windows Server 2012 R2.
 
+## System Requirements
+
+1. ACAS Security Center 5.4
+2. Windows Server 2012 R2
+3. Powershell V4
+4. Administrator account on Windows Server 2012 R2 Workstation
+5. Security Manager account on ACAS Security Center 5.4 
+
+This is the tested configuration currently however it may support future version of Windows/Powershell/SecurityCenter but your milage may vary, at the vary least this script shoulld provide a well documented base for future revisions based on new software/API versions.
+
 ## Configuration Guide
 
 1.Modify the following line #32 and add whatever local adminstrative account name you would like between the ''.

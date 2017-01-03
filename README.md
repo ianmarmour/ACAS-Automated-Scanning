@@ -29,8 +29,16 @@ $Username = 'ACASScanner'
 
 ```$base = "https://{your security centers ip goes here}/rest"```
 
-4.Modify the following line #136 by adding your scan ID into the POST request (Create a new scan with a credential being defined as the credential that you created earlier, after this scan is created click on it and look at the URL for the scan ID number)
+4.Modify the following line #124 by modifying the line to includ your security center manager account's user credentials.
+
+```$data = @{"username" = "{your username goes here}"; "password" = "{your password goes here}"}```
+
+5.Modify the following line #136 by adding your scan ID into the POST request (Create a new scan with a credential being defined as the credential that you created earlier, after this scan is created click on it and look at the URL for the scan ID number)
 
 ```$StartScan = Connect "POST" "/scan/{your scan id number goes here}/launch"```
 
+6. Modify the following lines #152/#153, the username you want to add here is the one that you gave to your LOCAL Admin account on the HBSS ePO Server not on the ACAS Security Center.
 
+```$Username = '{Your username goes here}'``` 
+
+```$ASDIComp.Delete('User','{Your username goes here}'```

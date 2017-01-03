@@ -50,11 +50,12 @@ If you're on a STIGGED system please make the below modification to local group 
 
 > ```Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignments -> Log on as a batch job -> and add the local administrator that you will run this script as to this group policy```
 
+1.Copy the configured script from the above section to your Windows 2012 R2 ePO Server preferably in a location that doesn't include spaces in the directory path I.E. `C:\Scripts\ACAS-MonthlyScanTool.ps1`
 
-Go to Windows Task Scheduler -> Create Task -> Set the following options
+2.Go to Windows Task Scheduler -> Create Task -> Set the following options
 
 
-### General
+#### General
 Name = Whatever
 
 Description = Whatever
@@ -69,7 +70,7 @@ Run whether user is logged on or not = true
 Run with highest privileges = true
 
 
-### Triggers
+#### Triggers
 
 Click new then set the following settings,
 
@@ -96,7 +97,7 @@ Enabled = True
 
 Click on the OK.
 
-### Actions
+#### Actions
 
 Click new then set the following options,
 
@@ -106,7 +107,7 @@ Action = Start a program
 
 Program/script = `powershell -file C:\{Your script location here}\ACAS-MonthlyScanTool.ps1`
 
-### Settings
+#### Settings
 
 Allow task to be run on demand = true
 

@@ -15,3 +15,10 @@ This script automates the following,
 Simply follow the below integration guide to deploy the script on your network. This script works best on fresh installs of the pre-configured DISA HBSS image but should work on any system that has Powershell V4 and Windows Server 2012 R2.
 
 ## Configuration Guide
+
+Modify the following line 
+`powershell
+$Username = 'ACASScanner'
+`
+Add the account name you would like created in the section between the ''.
+Modify the following line #96

@@ -23,4 +23,14 @@ $Username = 'ACASScanner'
 ```
 2.Modify the following line #96 by adding whatever your credential number is (to get a credential number create a new credential by clicking on scans, credentials, add, and the click on your credential and it will be the 7 digit number at the end of the url when viewing the new credential)
 
-```
+```$resp = Connect "PATCH" "/credential/{your credential number goes here}" $Data```
+
+3.Modify the following line #118 by adding the IP address of your Security Center into the URL.
+
+```$base = "https://{your security centers ip goes here}/rest"```
+
+4.Modify the following line #136 by adding your scan ID into the POST request (Create a new scan with a credential being defined as the credential that you created earlier, after this scan is created click on it and look at the URL for the scan ID number)
+
+```$StartScan = Connect "POST" "/scan/{your scan id number goes here}/launch"```
+
+

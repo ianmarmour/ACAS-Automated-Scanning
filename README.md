@@ -16,28 +16,28 @@ Simply follow the below integration guide to deploy the script on your network. 
 
 ## Configuration Guide
 
-1. Modify the following line #32 and add whatever local adminstrative account name you would like between the ''.
+1.Modify the following line #32 and add whatever local adminstrative account name you would like between the ''.
 
 ```powershell
 $Username = 'ACASScanner'
 ```
-2. Modify the following line #96 by adding whatever your credential number is (to get a credential number create a new credential by clicking on scans, credentials, add, and the click on your credential and it will be the 7 digit number at the end of the url when viewing the new credential)
+2.Modify the following line #96 by adding whatever your credential number is (to get a credential number create a new credential by clicking on scans, credentials, add, and the click on your credential and it will be the 7 digit number at the end of the url when viewing the new credential)
 
 ```$resp = Connect "PATCH" "/credential/{your credential number goes here}" $Data```
 
-3. Modify the following line #118 by adding the IP address of your Security Center into the URL.
+3.Modify the following line #118 by adding the IP address of your Security Center into the URL.
 
 ```$base = "https://{your security centers ip goes here}/rest"```
 
-4. Modify the following line #124 by modifying the line to includ your security center manager account's user credentials.
+4.Modify the following line #124 by modifying the line to includ your security center manager account's user credentials.
 
 ```$data = @{"username" = "{your username goes here}"; "password" = "{your password goes here}"}```
 
-5. Modify the following line #136 by adding your scan ID into the POST request (Create a new scan with a credential being defined as the credential that you created earlier, after this scan is created click on it and look at the URL for the scan ID number)
+5.Modify the following line #136 by adding your scan ID into the POST request (Create a new scan with a credential being defined as the credential that you created earlier, after this scan is created click on it and look at the URL for the scan ID number)
 
 ```$StartScan = Connect "POST" "/scan/{your scan id number goes here}/launch"```
 
-6. Modify the following lines #152/#153, the username you want to add here is the one that you gave to your LOCAL Admin account on the HBSS ePO Server not on the ACAS Security Center.
+6.Modify the following lines #152/#153, the username you want to add here is the one that you gave to your LOCAL Admin account on the HBSS ePO Server not on the ACAS Security Center.
 
 ```$Username = '{Your username goes here}'``` 
 

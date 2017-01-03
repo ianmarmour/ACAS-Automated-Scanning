@@ -37,7 +37,7 @@ $Username = 'ACASScanner'
 
 ```$StartScan = Connect "POST" "/scan/{your scan id number goes here}/launch"```
 
-6. Modify the following lines #152/#153, the username you want to add here is the one that you gave to your LOCAL Admin account on the HBSS ePO Server not on the ACAS Security Center.
+6.Modify the following lines #152/#153, the username you want to add here is the one that you gave to your LOCAL Admin account on the HBSS ePO Server not on the ACAS Security Center.
 
 ```$Username = '{Your username goes here}'``` 
 

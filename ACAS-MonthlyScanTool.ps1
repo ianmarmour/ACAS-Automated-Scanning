@@ -1,4 +1,4 @@
- #####################################
+#####################################
 ######## Certificate Ignore #########
 #####################################
 
@@ -56,7 +56,7 @@ $group.Add("WinNT://$Computername/ACASScanner,user")
 ########### Run Scan ###############
 ####################################
 
-#Main function that is used every time to connect to SC, requires a valid web session and security center token response from main code.
+#Main function that is used on every request to connect to Security Center, this requires a valid web session and security center response token response from main code.
 Function Connect ()
 {
   param(
@@ -64,8 +64,8 @@ Function Connect ()
     [string] $resource,
     [hashtable] $data = @{}
   )
-  #write-host $token
-
+  
+  #Adds the token value to X-Security Center in the session cookie.
   $header = @{}
   $header.Add("X-SecurityCenter","$token")
 
@@ -77,12 +77,13 @@ Function Connect ()
     $body = ConvertTo-Json $data
   }
   
+  #Invokes the request to star the rest session.
   $resp = Invoke-RestMethod -Uri $url -Method $method -Headers $header -Body $body -WebSession $myWebSession
 
   return $resp
 }
 
-#Updates the credential with a username of ACASScanners
+#This section updates the ACASScanners Credential in ACAS, simply create the ACASScanners credential with a Security Center Manager account for this to function.
 Function CreateCredential()
 {
 
@@ -93,8 +94,8 @@ Function CreateCredential()
   $Data.Add("authType", "password")
   $Data.Add("password", "$Password")
 
+  #Update teh below section with your credential URL in the following format /credential/YOUCREDENTIALNUMBER (You get your credential number from logging into security center and viewing the credential)
   $resp = Connect "PATCH" "Your crendential URL is here" $Data
-
   $resp
 }
 
@@ -132,7 +133,8 @@ Write-Host "Adding new Scan Credential"
 $GetScans = CreateCredential
 
 Write-Host "Starting ACAS Scan"
-#undocumented api function to create scans
+
+#The below section is an undocumented API call that allows you to launch scans. Make sure you create a new scan with the ACASScanners credential and then put the ScanID number into the below section where 6 currently is.
 $StartScan = Connect "POST" "/scan/6/launch"
 $idnumber = $StartScan.response.scanResult.id
 $status = ScanStatus($idnumber)

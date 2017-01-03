@@ -19,7 +19,7 @@ Simply follow the below integration guide to deploy the script on your network. 
 1.Modify the following line #32 and add whatever local adminstrative account name you would like between the ''.
 
 ```powershell
-$Username = 'ACASScanner'
+$Username = '{your username goes here}'
 ```
 2.Modify the following line #96 by adding whatever your credential number is (to get a credential number create a new credential by clicking on scans, credentials, add, and the click on your credential and it will be the 7 digit number at the end of the url when viewing the new credential)
 

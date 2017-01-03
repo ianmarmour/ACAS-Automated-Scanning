@@ -43,7 +43,8 @@ $Username = '{your username goes here}'
 
 ```$ASDIComp.Delete('User','{Your username goes here}'```
 
-7.There are 2 steps left, depending on if you're running a secured image or not this will differ for secured systems the below step is required.
+
+## Installation Guide
 
 ```Run the following command, gpedit.msc, go to Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignments -> Log on as a batch job -> and add the local administrator that you will run this script as to this group policy```
 
@@ -71,18 +72,23 @@ Run with highest privileges = true
 
 Click new then set the following settings,
 
+
 Begin the task = On a schedule
 
 
 Settings
 
+
 Monthly = true
+
 
 Start = Autofill
 
-Months = <Select all months>
+Months = Select all months
+
 
 Days = Pick a day
+
 
 Enabled = True
 
@@ -92,6 +98,7 @@ Click on the OK.
 ### Actions
 
 Click new then set the following options,
+
 
 Action = Start a program
 
@@ -104,4 +111,4 @@ Allow task to be run on demand = true
 
 Run task as soon as possible after a scheduled start is missed = true
 
-STop the task if it runs longer then = 2 hours.
+Stop the task if it runs longer then = 2 hours.

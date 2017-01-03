@@ -16,9 +16,9 @@ Simply follow the below integration guide to deploy the script on your network. 
 
 ## Configuration Guide
 
-*Modify the following line and add whatever local adminstrative account name you would like between the ''.
+1.Modify the following line and add whatever local adminstrative account name you would like between the ''.
 
 ```powershell
 $Username = 'ACASScanner'
 ```
-Modify the following line #96
+2.Modify the following line #96

@@ -42,3 +42,66 @@ $Username = '{your username goes here}'
 ```$Username = '{Your username goes here}'``` 
 
 ```$ASDIComp.Delete('User','{Your username goes here}'```
+
+7.There are 2 steps left, depending on if you're running a secured image or not this will differ for secured systems the below step is required.
+
+```Run the following command, gpedit.msc, go to Computer Configuration -> Windows Settings -> Security Settings -> Local Policies -> User Rights Assignments -> Log on as a batch job -> and add the local administrator that you will run this script as to this group policy```
+
+8.If you aren't on a secured/STIGd system then the above step was not required however the following step is required for both secured and non-secured systems,
+
+Go to Windows Task Scheduler -> Create Task -> Set the following options
+
+
+### General
+Name = Whatever
+
+Description = Whatever
+
+
+Security Options
+
+When running the task use the following user account = Your local administrator account.
+
+Run whether user is logged on or not = true
+
+Run with highest privileges = true
+
+
+### Triggers
+
+Click new then set the following settings,
+
+Begin the task = On a schedule
+
+
+Settings
+
+Monthly = true
+
+Start = Autofill
+
+Months = <Select all months>
+
+Days = Pick a day
+
+Enabled = True
+
+
+Click on the OK.
+
+### Actions
+
+Click new then set the following options,
+
+Action = Start a program
+
+
+Program/script = `powershell -file C:\{Your script location here}\ACAS-MonthlyScanTool.ps1`
+
+### Settings
+
+Allow task to be run on demand = true
+
+Run task as soon as possible after a scheduled start is missed = true
+
+STop the task if it runs longer then = 2 hours.
